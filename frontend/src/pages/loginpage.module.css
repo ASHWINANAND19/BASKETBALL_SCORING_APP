@@ -1,0 +1,123 @@
+.body{
+    display:flex;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+}
+.wrapper{
+    display:flex;
+    position:relative;
+    width:420px;
+    height:450px;
+    background:transparent;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    box-shadow:0 0 100px rgba(0,0,0,.8);
+    border-radius: 15px;
+    color:#fff;
+    align-items:center;
+    overflow:hidden;
+}
+
+.formboxlogin{
+    width:100%;
+    padding:40px;
+    transition:translate .6s ease;
+    translate:0;
+}
+
+.wrapperActive .formboxlogin{
+    transition:none;
+    translate:-400px;
+}
+
+.wrapperActive .formboxsignup{
+    transition:translate .6s ease;
+    translate:0;
+}
+
+.formboxsignup{
+    position:absolute;
+    transition:none;
+    width:100%;
+    padding:40px;
+    translate:400px;
+}
+
+.h1{
+    font-size:36px;
+    text-align:center;
+}
+
+.input{
+    position:relative;
+    width:100%;
+    height:50px;
+    margin:30px 0;
+}
+
+.input input{
+    width:100%;
+    height:100%;
+    background:transparent;
+    outline:none;
+    border:2px solid rgba(255,255,255, .1);
+    border-radius:40px;
+    font-size:16px;
+    color:#fff;
+    padding:20px 20px 20px 20px;
+}
+
+.input input::placeholder{
+    color:#fff;
+}
+
+.button{
+    width:100%;
+    height:45px;
+    background:#fff;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor:pointer;
+    font-size:20px;
+    color:#333;
+    font-weight:700;
+}
+
+.signup{
+    display:flex;
+    justify-content:center;;
+    font-size:14px;
+    margin: 20px 0 15px;
+}
+
+.signup a{
+    color:black;
+    text-decoration:none;
+    font-weight:800;
+}
+
+.signup p{
+    color:black;
+    text-decoration:none;
+    font-weight:800;
+}
+
+.signup a:hover{
+    color:black;
+    text-decoration:underline;
+}
+
+.desc{
+    display:flex;
+    font-size:15px;
+    justify-content:center;
+    position:relative;
+    align-items:center;
+    color:black;
+    font-weight:1000;
+    margin: 35px 0px -15px 0px;
+    text-align:center;
+}
