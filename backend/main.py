@@ -18,6 +18,10 @@ import ssl
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Basketball Scoring App!"}
+    
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://basketball-scoring-app.vercel.app"],
