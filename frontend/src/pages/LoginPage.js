@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from './loginpage.module.css';
+import api_url from "./Config";
 
 const Login = ({setToken}) => {
 
@@ -8,7 +9,6 @@ const Login = ({setToken}) => {
     const [username,setUsername]=useState('');
     const [name,setname]=useState('');
     const [password,setPassword]=useState('');
-    const api_url='http://192.168.27.175:8000'
 
     const signupLink = () =>{
         setSignup(true);
