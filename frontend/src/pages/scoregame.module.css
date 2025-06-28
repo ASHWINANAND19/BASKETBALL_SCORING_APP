@@ -1,0 +1,839 @@
+.body1{
+    min-height: 100vh;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding:75px ;
+}
+
+.teambox{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    min-width: 80vh;
+    height: 80vh;
+    background: rgba(18, 18, 18, 0.4);
+    width:50%;
+    border:2px solid #00ffe5;
+    box-shadow: 0px 0 25px rgba(0, 255, 229, 0.8);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    padding:10px 10px;
+}
+
+.playerstable {
+    position: absolute;
+    width: 90%;
+    top: 10%;
+    left: 5%;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem; /* Slightly smaller base font */
+    border-collapse: collapse; /* Collapse borders */
+    table-layout: fixed;
+}
+
+/* Table Header */
+.playerstable th {
+    border: 2px solid black;
+    padding: 0.4rem 0.6rem; /* Reduced padding for smaller height */
+    text-align: center;
+    color: black;
+    background:  #0ff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Table Cells */
+.playerstable td {
+    border: 2px solid rgba(255, 255, 255, 0.579);
+    padding: 0.3rem 0.6rem; /* Reduced vertical padding */
+    text-align: center;
+    color: white;
+    background-color: black;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
+    max-width: 100%;
+}
+
+/* Responsive text spans */
+.playerstable td span,
+.playerstable th span {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transform: scale(1);
+    transform-origin: left center;
+
+  vertical-align: middle;
+}
+
+/* Table Rows */
+.playerstable tbody tr {
+    transition: background-color 0.2s, box-shadow 0.3s;
+    height: 45px; /* Control row height */
+}
+
+.playerstable tbody tr:hover {
+    background-color: #111;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+/* Neon-styled checkbox container */
+.playerstable input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    border: 2px solid #0ff;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Neon glow on check */
+.playerstable input[type="checkbox"]:checked {
+    box-shadow: 0 0 6px #0ff;
+}
+
+/* Tick mark as neon using ::after */
+.playerstable input[type="checkbox"]::after {
+    content: '✔';
+    color: #0ff;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/* Show tick when checked */
+.playerstable input[type="checkbox"]:checked::after {
+    display: block;
+}
+
+.playerScoring {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerScoreButton {
+  background: #333;
+  color: white;
+  border: 1px solid #00ffe5;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.5s;
+}
+
+.playerScoreButton:hover:not(:disabled) {
+  background: #00ffe5;
+  color: black;
+}
+
+.playerScoreButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.playerPoints {
+  font-size: 14px;
+  color: #00ffe5;
+  margin-top: 2px;
+  font-weight: 300px;
+}
+
+.playerstable th:nth-child(1),
+.playerstable td:nth-child(1) {
+  width: 150px; /* Adjust as needed */
+  text-align: center;
+}
+
+.playerstable th:nth-child(3),
+.playerstable td:nth-child(3) {
+  width: 250px;
+  padding: 8px 4px; /* Reduced side padding */
+  text-align: center;
+}
+.playerstable th:nth-child(2),
+.playerstable td:nth-child(2) {
+  width: 120px;
+  text-align: center;
+}
+
+
+
+.emptyRow {
+  opacity: 0.4;
+  background-color: #222;
+}
+
+.emptyRow td {
+  border-color: #333 !important;
+}
+
+.emptyPlayer {
+  color: #666;
+  font-style: italic;
+}
+/* Ejected row styling */
+.ejectedRow {
+  opacity: 0.6;
+  background-color: #333 !important;
+  color: #999 !important;
+  transition: all 0.3s ease;
+}
+
+.ejectedRow td {
+  border-color: #555 !important;
+}
+.disabledLabel {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* Ejection badge */
+.ejectedBadge {
+  color: red;
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+/* Disabled technical foul labels */
+.disabledLabel {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.hotStreak {
+  font-size: 16px;
+  margin-left: 4px;
+  display: inline-block;
+}
+.scoring{
+    display:grid;
+    position:relative;
+    gap:10px;
+    grid-template-columns: repeat(1, 250px); /* 2 columns of equal width */
+    grid-template-rows: repeat(1, 50px);   /* 2 rows */
+    top: 85%;
+    left: 30%;
+}
+
+.scoringB{
+  display:grid;
+  position:relative;
+  gap:10px;
+  grid-template-columns: repeat(1, 250px); /* 2 columns of equal width */
+  grid-template-rows: repeat(1, 50px);   /* 2 rows */
+  top: 85%;
+  left: -30%;
+}
+
+.scorebuttons{
+    background: black;
+    color:white;
+    font-size: 20px;
+    border:1px solid #00ffe5;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.scorebuttons:disabled{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.allboards{
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    padding:10px 10px;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    gap:10px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.scoreboard{
+    display:flex;
+    position:relative;
+    border-radius:15px;
+    padding:10px 10px;
+    height:60px;
+    z-index: 1;
+    width:275px;
+    background:none;
+    margin-top: 0px;
+}
+
+.timeboard{
+    display:flex;
+    position:relative;
+    border-radius:15px;
+    padding:10px 10px;
+    height:50px;
+    z-index: 1;
+    width:400px;
+    background:none;
+}
+
+.hexagon1 {
+    display:flex;
+    position:absolute;
+    height: 100%; /* adjust to control the size  */
+    width:50%;
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -150%,150% 50%,50%250%,0 50%);
+    background: black;
+    top:0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    border:2px solid #00ffe5;
+  }
+
+.hexagon2 {
+    display:flex;
+    position:absolute;
+    height: 100%; /* adjust to control the size  */
+    width:50%;
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -150%,100% 50%,50% 250%,-20% 50%);
+    background: black;
+    top:0;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    border:2px solid #00ffe5;
+  }
+
+  .hexagonselecttime {
+    display:flex;
+    position:absolute;
+    height: 100%;
+    width:30%;
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -100%,100% 50%,50% 200%,0% 50%);
+    background: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    border:4px solid rgba(255, 255, 255, 0.579);
+  }
+
+.hexagontime {
+    display:flex;
+    position:absolute;
+    height: 100%;
+    width:40%;
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -100%,100% 50%,50% 200%,0% 50%);
+    background: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    border:6px solid #00ffe5;
+  }
+
+.team1score{
+    position:absolute;
+    left:20%;
+}
+
+.team2score{
+    position:absolute;
+    left:57%;
+}
+
+.start{
+    position:absolute;
+    left:13%;
+}
+
+.reset{
+    position:absolute;
+    left:42%;
+}
+
+.button{
+    position:relative;
+    font-size:20px;
+    font-weight:100;
+    margin-left:-45px;
+    text-decoration: none;
+    background:none;
+    border:none;
+    color:white;
+}
+
+.button::before{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#fff;
+    margin-top:-5px;
+    transition:.3s;
+}
+
+.button:hover:before{
+    width:100%;
+}
+
+.button1{
+    position:relative;
+    font-size:20px;
+    font-weight:100;
+    margin-left:30px;
+    text-decoration: none;
+    background:none;
+    border:none;
+    color:white;
+}
+
+.button1::before{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#fff;
+    margin-top:-5px;
+    transition:.3s;
+}
+
+.button1:hover:before{
+    width:100%;
+}
+.inputbox{
+    border:1px solid #00ffe5;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width:90px;
+    height:30px;
+    font-style: italic;
+}
+
+.techCheckbox:disabled {
+  opacity: 0.5;
+}
+
+.techCheckbox {
+    display:flex;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background-color: black;
+    border: 2px solid #00ffe5; /* Neon border */
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    accent-color: #00ffe5; /* teal glow */
+    transition: all 0.5s;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .techCheckbox:checked {
+    background-color: black;
+  }
+  
+  .techCheckbox:checked::after {
+    content: '✔';
+    color: #00ffe5; /* Neon checkmark */
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+  }
+  
+  .techCheckbox:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 5px #00ffe5;
+  }
+  
+  .techCheckbox:disabled:hover {
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+  }
+
+  .techCheckboxWrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .techCheckboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #00ffe5;
+    font-weight: bold;
+  }
+
+  .bottomPanel {
+    position:fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    background-color: #111;
+    margin-top: 23px;
+    left: 54%;
+    top: 88%;
+    width:40%;
+    border:2px solid #00ffe5;
+    box-shadow: 0px 0 25px rgba(0, 255, 229, 0.8);
+    border-radius:15px;
+  }
+  
+  .undoButton, .redoButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00ffe5;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .undoButton:disabled, .redoButton:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+  }
+  
+  .lastAction {
+    color: white;
+    font-size: 18px;
+    text-shadow: 0 0 5px #00ffe5;
+  }
+  .lastAction {
+  position: relative;
+  overflow: hidden;
+  height: 24px; /* adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionText {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.slideIn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.slideOut {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+
+  
+  .foulTrackerA {
+    position:fixed;
+    left:10%;
+    top:64.5%;
+    display: grid;
+    grid-template-columns: repeat(6, 20px); /* 6 columns for the first row */
+    grid-template-rows: auto auto auto; /* 3 rows */
+    gap: 30px; /* Space between the boxes */
+    row-gap: 10px;
+    margin-top: 10px;
+    justify-items: center; /* Center boxes within each grid cell */
+  }
+  
+   
+  .foulTrackerB {
+    position: fixed;
+    left: 50%;
+    top: 67%;
+    display: grid;
+    grid-template-columns: repeat(6, 40px);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    justify-items: center;
+  }
+  
+  .foulBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .foulBoxActive {
+    background-color: #0ff; /* Your neon blue */
+    box-shadow: 0 0 10px #0ff;
+    border-color: black;
+  }
+  
+  /* First 6 boxes go into the first row */
+  .foulTrackerA > .foulBox:nth-child(-n+6),
+  .foulTrackerB > .foulBox:nth-child(-n+6) {
+    grid-column: span 1;
+  }
+  
+  /* Boxes 7–9 go into the second row */
+  .foulTrackerA > .foulBox:nth-child(n+7):nth-child(-n+9),
+  .foulTrackerB > .foulBox:nth-child(n+7):nth-child(-n+9) {
+    grid-column: span 1;
+    margin-left: 150px;
+  }
+  
+  /* Box 10 goes into its own row */
+  .foulTrackerA > .foulBox:nth-child(10),
+  .foulTrackerB > .foulBox:nth-child(10) {
+    grid-column: span 6;
+  }
+
+  .foulMessage1 {
+    display: flex;
+    position: relative;
+    color: #0ff;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: bold;
+    text-align: center;
+    left: 35px;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .foulMessage2 {
+    display: flex;
+    position: relative;
+    color: #0ff;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: bold;
+    text-align: center;
+    left: -40px;
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  .AemojiRow2 {
+    position:fixed;
+    grid-column: 1 / -1;
+    font-size: 30px;
+    filter: brightness(1.5) saturate(2) ;
+    top: 74%;
+    left: 14%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .AemojiRow3 {
+    position: fixed;
+    grid-column: 1 / -1;
+    justify-self: start;
+    filter: brightness(1.5) saturate(2) ;
+    font-size: 30px;
+    top: 81%;
+    left: 16.5%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .emojiRow2 {
+    position:fixed;
+    grid-column: 1 / -1;
+    font-size: 30px;
+    filter: brightness(1.5) saturate(2) ;
+    top: 75%;
+    left: 56%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .emojiRow3 {
+    position: fixed;
+    grid-column: 1 / -1;
+    justify-self: start;
+    filter: brightness(1.5) saturate(2) ;
+    font-size: 30px;
+    top: 82%;
+    left: 57%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .loadingMessage {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .saveButton {
+    background: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    left: 0;
+    font-size: 15px;
+  }
+  
+  .saveButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .resetButton {
+    background: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  .endbutton {
+    background: white;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  .bottomPanel1 {
+    position:fixed;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #111;
+    margin-top: 23px;
+    left: 13.5%;
+    top: 88%;
+    width:auto;
+    border:2px solid #00ffe5;
+    box-shadow: 0px 0 25px rgba(0, 255, 229, 0.8);
+    border-radius:15px;
+  }
+  
+  .headingA,.headingB{
+    position: fixed;
+    color:#00ffe5;
+    top: 60%;
+  }
+
+  .headingA{
+    left: 22.5%;
+  }
+
+  .headingB{
+    left: 63%;
+  }
+
+  /* Player Stats Styles */
+.playerStatsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statButton {
+  padding: 4px 8px;
+  background: #333;
+  color: white;
+  border: 1px solid #00ffe5;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s;
+  min-width: 40px;
+}
+
+.statButton:hover:not(:disabled) {
+  background: #00ffe5;
+  color: black;
+}
+
+.statButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.statDisplay {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-size: 12px;
+  color: #00ffe5;
+}
+
+.statDisplay span {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}

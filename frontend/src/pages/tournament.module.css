@@ -1,0 +1,256 @@
+/* teams.module.css */
+.body1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.teamContainer {
+    position:fixed;
+    top: 10%;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(5, 0, 18, 0.7);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 229, 0.3);
+}
+
+.teamTabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 255, 229, 0.3);
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+.tabButton {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.tabButton:hover {
+    background: rgba(0, 255, 229, 0.1);
+    color: #00ffe5;
+}
+
+.activeTab {
+    background: rgba(0, 255, 229, 0.2);
+    color: #00ffe5;
+    border-bottom: 2px solid #00ffe5;
+}
+
+.teamContent {
+    padding: 20px 0;
+}
+
+.teamList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.teamCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.teamCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 229, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+.teamCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 229, 0.2);
+}
+
+.teamPlayers {
+    margin: 15px 0;
+}
+
+.teamPlayers p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.teamStats {
+    margin: 15px 0;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.teamActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.editButton, .deleteButton {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.editButton {
+    background: #00ffe5;
+    color: black;
+}
+
+.editButton:hover {
+    background: #00ccbb;
+}
+
+.deleteButton {
+    background: #ff5555;
+    color: white;
+}
+
+.deleteButton:hover {
+    background: #ff3333;
+}
+
+.createTeamForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.createTeamForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffe5;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00ffe5;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(5, 0, 18, 0.7);
+    border: 1px solid #00ffe5;
+    border-radius: 5px;
+    color: white;
+}
+
+.submitButton, .cancelButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.submitButton {
+    background: #00ffe5;
+    color: black;
+    margin-right: 10px;
+}
+
+.submitButton:hover {
+    background: #00ccbb;
+}
+
+.cancelButton {
+    background: #ff5555;
+    color: white;
+}
+
+.cancelButton:hover {
+    background: #ff3333;
+}
+
+.searchTeams {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.searchForm {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    left: 25%;
+}
+
+.searchForm input {
+    flex: 1;
+    padding: 10px;
+    background: rgba(5, 0, 18, 0.7);
+    border: 1px solid #00ffe5;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+.searchForm button {
+    padding: 10px 20px;
+    background: #00ffe5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.searchForm button:hover {
+    background: #00ccbb;
+}
+
+.searchResults {
+    margin-top: 20px;
+}
+
+.searchResults h3 {
+    color: #00ffe5;
+    margin-bottom: 15px;
+}
+
+/* Add to teams.module.css */
+.errorMessage {
+    color: #ff5555;
+    background: rgba(255, 85, 85, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ff5555;
+}
+
+.errorText {
+    color: #ff5555;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+input.error {
+    border-color: #ff5555;
+}

@@ -1,0 +1,481 @@
+/* teams.module.css */
+.body1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.teamContainer {
+    position:fixed;
+    top: 10%;
+    width: 90%;
+    max-width: 1200px;
+    height: 85%;
+    background: rgba(5, 0, 18, 0.7);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 229, 0.3);
+}
+
+.teamTabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 255, 229, 0.3);
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+.tabButton {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.tabButton:hover {
+    background: rgba(0, 255, 229, 0.1);
+    color: #00ffe5;
+}
+
+.activeTab {
+    background: rgba(0, 255, 229, 0.2);
+    color: #00ffe5;
+    border-bottom: 2px solid #00ffe5;
+}
+
+.teamContent {
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.teamCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.teamCard {
+    background: rgba(0, 0, 0, 0.05);
+    border: 4px solid rgba(0, 255, 229, 0.3);
+    border-radius: 35px;
+    padding: 15px;
+    padding-top: 30px;
+    transition: all 0.3s;
+}
+
+.teamCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 229, 0.2);
+}
+
+.teamPlayers {
+    margin: 15px 0;
+}
+
+.teamPlayers p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.teamStats {
+    margin: 15px 0 15px;
+    font-size: 13px;
+    color: white;
+}
+
+.teamActions {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Pushes content to bottom */
+    
+}
+
+.editButton, .deleteButton {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.editButton {
+    background: #00ffe5;
+    color: black;
+}
+
+.editButton:hover {
+    background: #00ccbb;
+}
+
+.deleteButton {
+    background: #ff5555;
+    color: white;
+}
+
+.deleteButton:hover {
+    background: #ff3333;
+}
+
+.createTeamForm {
+    width: 30%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.createTeamForm h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #00ffe5;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00ffe5;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(5, 0, 18, 0.7);
+    border: 1px solid #00ffe5;
+    border-radius: 15px;
+    color: white;
+}
+
+.submitButton, .cancelButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.submitButton {
+    background: #00ffe5;
+    color: black;
+    margin-right: 10px;
+}
+
+.submitButton:hover {
+    background: #00ccbb;
+}
+
+.cancelButton {
+    background: #ff5555;
+    color: white;
+}
+
+.cancelButton:hover {
+    background: #ff3333;
+}
+
+.searchTeams {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.searchForm {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    left: 25%;
+    margin-top: -20px;
+}
+
+.searchForm input {
+    flex: 1;
+    padding: 10px;
+    background: rgba(5, 0, 18, 0.7);
+    border: 2px solid #00ffe5;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.searchForm button {
+    padding: 10px 20px;
+    background: #00ffe5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.searchForm button:hover {
+    background: #00ccbb;
+}
+
+.searchResults {
+    margin-top: -10px;
+}
+
+.searchResults h3 {
+    color: #00ffe5;
+    margin-bottom: 15px;
+}
+
+/* Add to teams.module.css */
+.errorMessage {
+    color: #ff5555;
+    background: rgba(255, 85, 85, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ff5555;
+}
+
+.errorText {
+    color: #ff5555;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+input.error {
+    border-color: #ff5555;
+}
+
+.teamnameinput{
+    margin-bottom: 35px;
+    margin-top: 5px;
+}
+.teamPlayers {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin: px 0;
+  }
+  
+  .teamPlayers th {
+    color: orange;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+  }
+  
+  .teamPlayers td {
+    padding: 10px 15px;
+    background-color: black;
+    text-align: center;
+  }
+  
+  .teamPlayers td:first-child {
+    color: white;
+    font-weight: bold;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .teamPlayers td:last-child {
+    color: #00ffe5;
+    border-radius: 0 4px 4px 0;
+    text-align: right;
+    text-align: center;
+  }
+  
+  .teamPlayers tr:hover td {
+    background-color: #333;
+  }
+
+  /* Add to teams.module.css */
+  
+  .pagination {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 5px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+  
+  .pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination button.activePage {
+    background-color: #00ffe5;
+    color: #333;
+    font-weight: bold;
+  }
+  
+/* Add to teams.module.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 999;
+    pointer-events: auto;
+  }
+  
+  .modalOverlay > *:not(.toast) {
+    pointer-events: none;
+    opacity: 0.7;
+    filter: blur(1px);
+    min-height: 100vh;
+  }
+  
+  .toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #00ffe5;
+    width: auto;
+    text-align: center;
+  }
+  
+  .toastMessage {
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .toastButtons {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .toastConfirmButton {
+    padding: 10px 20px;
+    background: #00ffe5;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.2s;
+    min-width: 100px;
+  }
+  
+  .toastConfirmButton:hover {
+    background: #00ccbb;
+  }
+  
+  .toastCancelButton {
+    padding: 10px 20px;
+    background: transparent;
+    color: #ff5555;
+    border: 2px solid #ff5555;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    min-width: 100px;
+  }
+  
+  .toastCancelButton:hover {
+    background: rgba(255, 85, 85, 0.1);
+  }
+
+
+  /* Animation styles */
+.teamCards {
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .slideLeft {
+    animation: slideLeft 0.3s ease forwards;
+  }
+  
+  .slideRight {
+    animation: slideRight 0.3s ease forwards;
+  }
+  
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideRight {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+  }
+  
+  /* Make sure the container has the correct layout */
+  .teamList, .searchResults {
+    overflow: hidden;
+    position: relative;
+    min-height: 300px; /* Adjust based on your content */
+  }
+
+  .slideContainer {
+    animation: slideIn 1.5s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

@@ -1,0 +1,364 @@
+/* Base Styles */
+.scoreboard {
+    position: fixed;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    background: #0a0a12;
+    color: white;
+    border-radius: 16px;
+    overflow:scroll;
+    box-shadow: 0 0 30px rgba(0, 255, 229, 0.2);
+    border: 1px solid rgba(0, 255, 229, 0.3);
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+    top: 190%;
+    left: -230%;
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 1px solid rgba(0, 255, 229, 0.2);
+  }
+  
+  .teamHeader {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .teamName {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #00ffe5;
+    text-shadow: 0 0 10px rgba(0, 255, 229, 0.5);
+    font-weight: 700;
+  }
+  
+  .scoreContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .score {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    position: relative;
+    line-height: 1;
+  }
+  
+  .fouls {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+  }
+  
+  .gameInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+  }
+  
+  .timer {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ffe5;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 5px;
+  }
+  
+  .gameStatus {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00ffaa;
+    background: rgba(0, 255, 170, 0.1);
+    padding: 3px 15px;
+    border-radius: 20px;
+  }
+  
+  /* Score Change Animation */
+  .scoreChange {
+    position: absolute;
+    right: -25px;
+    top: -15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ffaa;
+    opacity: 0;
+    animation: scorePop 1s ease-out;
+  }
+  
+  @keyframes scorePop {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+  }
+  
+  /* Player Stats Section */
+  .playerStats {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .teamColumn {
+    flex: 1;
+    background: rgba(10, 10, 20, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .teamTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 15px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 229, 0.2);
+    color: #00ffe5;
+  }
+  
+  .statsTable {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tableHeader {
+    display: flex;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: rgba(0, 255, 229, 0.8);
+  }
+  
+  .tableHeader span {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .tableHeader span:first-child {
+    flex: 2;
+    text-align: left;
+  }
+  
+  .playerRow {
+    display: flex;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(0, 255, 229, 0.1);
+    align-items: center;
+  }
+  
+  .playerRow span {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .playerRow span:first-child {
+    flex: 2;
+    text-align: left;
+  }
+  
+  .playerName {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Special Indicators */
+  .hotStreak {
+    color: #ff5555;
+    font-size: 1rem;
+  }
+  
+  .ejectedBadge {
+    font-size: 0.7rem;
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff3333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+  
+  .ejected {
+    opacity: 0.6;
+    background: rgba(255, 0, 0, 0.05);
+  }
+  
+  /* Loading State (Keeping your original style) */
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 255, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: #00ffe5;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .playerStats {
+      flex-direction: column;
+    }
+    
+    .header {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .teamHeader {
+      width: 100%;
+    }
+    
+    .gameInfo {
+      order: -1;
+      margin-bottom: 15px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .teamName {
+      font-size: 1.5rem;
+    }
+    
+    .score {
+      font-size: 3rem;
+    }
+    
+    .timer {
+      font-size: 2rem;
+    }
+    
+    .playerRow, .tableHeader {
+      font-size: 0.9rem;
+      padding: 10px 8px;
+    }
+  }
+
+  /* Main Content Layout */
+.mainContent {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .playerStats {
+    flex: 2;
+  }
+  
+  .actionFeed {
+    flex: 1;
+    background: rgba(10, 10, 20, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 229, 0.2);
+  }
+  
+  .feedTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 15px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 229, 0.2);
+    color: #00ffe5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .feedContainer {
+    height: 240px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .feedItem {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .feedTimestamp {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .feedText {
+    color: white;
+  }
+  
+  /* Action Type Colors */
+  .feedItem.score {
+    border-left: 3px solid #00ffaa;
+  }
+  
+  .feedItem.foul {
+    border-left: 3px solid #ff5555;
+  }
+  
+  .feedItem.game {
+    border-left: 3px solid #00a8ff;
+  }
+  
+  .feedItem.system {
+    border-left: 3px solid #aaaaaa;
+  }
+  
+  .noActions {
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+  
+  /* Scrollbar styling */
+  .feedContainer::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .feedContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedContainer::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 229, 0.3);
+    border-radius: 3px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .mainContent {
+      flex-direction: column;
+    }
+    
+    .actionFeed {
+      order: -1;
+    }
+  }
