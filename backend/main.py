@@ -40,12 +40,12 @@ def get_db_connection(database="basketball"):
     ssl_context = ssl.create_default_context(
         cafile="ca.pem"  # Make sure this file is in your project root or adjust the path
     )
-
+    pass="AVNS_64dMPupQiBa5bee9Iz2"
     return pymysql.connect(
         host="mysql-356c3b73-ashwin-2a3f.g.aivencloud.com",
         port=13379,
         user="avnadmin",
-        password="YOUR_PASSWORD",  # 🔒 Replace with your real password
+        password=pass,  # 🔒 Replace with your real password
         database=database,
         cursorclass=DictCursor,
         ssl=ssl_context
