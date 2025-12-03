@@ -79,7 +79,7 @@ const Homepage = ({ setToken }) => {
   if (loading) return <div className={styles.loading}>Loading...</div>;
   if (error) return <div className={styles.error}>{error}</div>;
   if (!userData) return null;
- if (teams.length === 0) return <div><Navbar setToken={setToken} /> <div className={styles.noTeams}>No teams found</div></div> ;
+ if (teams.length === 0) return <div className={styles.body1}><Navbar setToken={setToken} /> <div className={styles.noTeams}>No teams found</div></div> ;
 
   const currentTeam = teams[currentTeamIndex];
 
